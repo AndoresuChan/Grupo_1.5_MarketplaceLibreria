@@ -1,24 +1,30 @@
 <template>
   <header class="header">
     <div class="header-content">
-      <button class="menu-button" @click="handleClick('menu')">☰</button>
-
       <router-link :to="{ name: 'ProductList', params: { id: id } }">
         <button class="logo-button" @click="handleClick('home')">
-        <img src="./assets/img/logo.png" alt="Logo" class="logo"/>
-      </button>
+          <img src="./assets/img/logo.png" alt="Logo" class="logo"/>
+        </button>
       </router-link>
 
       <div class="search-bar">
-        <input type="text" placeholder="Buscar Productos" v-model="searchQuery" />
+        <input type="text" placeholder="Buscar Productos" v-model="searchQuery"/>
         <button @click="search">Buscar</button>
       </div>
 
-      <router-link :to="{ name: 'Login', params: { id: id } }">
-        <button class="profile-button" @click="handleClick('profile')"> 
-        <img src="./assets/img/user-icon.png" alt="profile" /></button>
-      </router-link>
+      <div class="header-buttons">
+        <router-link :to="{ name: 'Login', params: { id: id } }">
+          <button class="profile-button" @click="handleClick('profile')"> 
+            <img src="./assets/img/user-icon.png" alt="profile" />
+          </button>
+        </router-link>
 
+        <router-link :to="{ name: 'Basket', params: { id: id } }">
+        <button class="cart-button" @click="handleClick('cart')">
+          <img src="./assets/img/cart-icon.png" alt="cart" />
+        </button>
+        </router-link>
+      </div>
     </div>
   </header>
 </template>
@@ -64,17 +70,13 @@ export default {
   padding: 0 1rem;
 }
 
-.menu-button,
+.logo-button,
 .profile-button,
-.logo-button {
+.cart-button {
   background: none;
   border: none;
   cursor: pointer;
   font-size: 1.5rem;
-}
-
-.menu-button {
-  margin-right: auto; 
 }
 
 .logo-button {
@@ -115,12 +117,23 @@ export default {
   background-color: #45a049;
 }
 
+.header-buttons {
+  display: flex;
+  align-items: center;
+}
+
 .profile-button {
   margin-left: auto;
   height: 50px;
 }
 
-.profile-button img {
+.profile-button img,
+.cart-button img {
   height: 40px;
+}
+
+.cart-button {
+  margin-left: 10px;
+  height: 50px;
 }
 </style>

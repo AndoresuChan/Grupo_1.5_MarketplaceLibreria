@@ -36,7 +36,6 @@
         justify-content: center;
         align-items: center;
         height: 70vh;
-        background-color: #e0e0e0;
     }
 
     .register-box {
