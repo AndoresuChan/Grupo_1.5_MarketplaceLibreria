@@ -1,114 +1,124 @@
 <template>
-  <div class="product-detail">
-    <div class="sidebar">
-      <div class="sidebar-item">ID producto</div>
-      <div class="sidebar-item">Útiles escolares</div>
-      <div class="sidebar-item">Escritura y corrección</div>
-      <div class="sidebar-item">Arte y manualidades</div>
-    </div>
-    <div class="product-info">
-      <h2>{{ product.name }}</h2>
-      <img :src="product.image" alt="Product Image" />
-      <div class="product-meta">
-        <div class="product-meta-item">{{ product.description }}</div>
-        <div class="product-meta-item">Vendedor: {{ product.supplier }}</div>
-        <div class="product-meta-item">Precio: {{ product.price }}</div>
+    <div class="product-detail-container">
+      <div class="product-detail">
+        <img :src="product.image" alt="Product Image" class="product-image" />
+        <div class="product-info">
+          <h2 class="product-name">{{ product.name }}</h2>
+          <p class="supplier">{{ product.supplier }}</p>
+          <p class="price">Precio: {{ product.price }}</p>
+        </div>
+        <div class="description">
+          <h3>Descripción:</h3>
+          <p>{{ product.description }}</p>
+        </div>
+        <button class="remove-button">Eliminar Producto</button>
       </div>
-      <p> Etiquetas: {{product.label1}}, {{ product.label2 }}</p>
-      <button @click="removeProduct">Eliminar Producto</button>
     </div>
-  </div>
-</template>
-
-<script>
-import productData from '@/data/products.json';
-
-export default {
-  name: 'ProductDetail',
-  data() {
-    return {
-      product: null
-    };
-  },
-  created() {
-    const productId = parseInt(this.$route.params.id);
-    this.product = productData.find(product => product.id === productId);
-  },
-  methods: {
-    removeProduct() {
-      console.log(`Producto con ID ${this.product.id} eliminado.`);
+  </template>
+  
+  <script>
+  import productData from '@/data/products.json';
+  
+  export default {
+    name: 'ProductDetail',
+    data() {
+      return {
+        product: {}
+      };
+    },
+    created() {
+      const productId = this.$route.params.id;
+      this.product = productData.find(product => product.id == productId);
     }
+  };
+  </script>
+  
+  <style scoped>
+  .product-detail-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 40px; 
   }
-};
-</script>
-
-<style scoped>
-.product-detail {
-  display: flex;
-  background-color: #7887D3;
-  padding: 2rem;
-}
-
-.sidebar {
-  display: flex;
-  flex-direction: column;
-  margin-right: 1rem;
-  width: 200px;
-}
-
-.sidebar-item {
-  background-color: #8b5e34;
-  color: white;
-  padding: 1rem;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-.product-info {
-  background-color: #d0a671;
-  padding: 1.5rem;
-  flex-grow: 1;
-}
-
-.product-info h2 {
-  margin: 0 0 1rem 0;
-}
-
-.product-meta {
-  margin-bottom: rem;
-}
-
-.product-meta-item {
-  background-color: #8b5e34;
-  color: white;
-  padding: 0.5rem;
-  margin-bottom: 0.5rem;
-  text-align: center;
-}
-
-.product-info img {
-  max-width: 100%;
-  height: auto;
-  margin-bottom: 1rem;
-}
-
-.product-info p {
-  background-color: #8b5e34;
-  color: white;
-  padding: 1rem;
-  margin-bottom: 1rem;
-}
-
-button {
-  background-color: red;
-  color: white;
-  border: none;
-  padding: 1rem;
-  cursor: pointer;
-  width: 100%;
-}
-
-button:hover {
-  background-color: darkred;
-}
-</style>
+  
+  .product-detail {
+    background-color: #7887D3;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    max-width: 1000px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto 1fr auto auto;
+    gap: 20px;
+    align-items: start;
+  }
+  
+  .product-image {
+    grid-column: 1 / 2;
+    grid-row: 1 / 3;
+    width: 100%;
+    max-width: 300px;
+    border-radius: 10px;
+  }
+  
+  .product-info {
+    grid-column: 2 / 3;
+    grid-row: 1 / 3;
+  }
+  
+  .product-name {
+    font-size: 1.8rem;
+    background-color: #474D8C;
+    color: white;
+    padding: 6px;
+    border-radius: 5px;
+  }
+  
+  .supplier {
+    font-size: 1.5rem;
+    background-color: #474D8C;
+    color: white;
+    padding: 6px;
+    border-radius: 5px;
+  }
+  
+  .price {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    background-color: #474D8C;
+    padding: 6px;
+    border-radius: 5px;
+    text-align: center;
+  }
+  
+  .description {
+    grid-column: 1 / 3;
+    grid-row: 4 / 5;
+    background-color: #474D8C;
+    color: white;
+    padding: 10px;
+    border-radius: 10px;
+  }
+  
+  .remove-button {
+    grid-column: 1 / 3;
+    grid-row: 5 / 6;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 1rem;
+    margin-top: 20px;
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+  
+  .remove-button:hover {
+    background-color: darkred;
+    transform: scale(1.02);
+  }
+  </style>
+  

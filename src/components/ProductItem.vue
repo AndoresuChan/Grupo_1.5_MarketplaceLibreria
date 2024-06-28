@@ -5,7 +5,7 @@
       <h2>{{ name }}</h2>
       <p class="price">{{ price }}</p>
       <p class="description">{{ description }}</p>
-      <router-link :to="{ name: 'ProductDetail', params: { id: id } }">
+      <router-link :to="{ name: 'ProductDetailAdmin', params: { id: id } }">
         <button class="detail-button">Ver detalles</button>
       </router-link>
     </div>

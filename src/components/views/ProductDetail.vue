@@ -72,6 +72,7 @@
     color: white;
     padding: 6px;
     border-radius: 5px;
+    text-align: center;
   }
   
   .supplier {
