@@ -18,7 +18,7 @@
 
 <script>
 import ProductItem from '@/components/ProductItem.vue';
-import productData from '@/data/products.json';
+import api from '@/services/api'; // Asegúrate de tener configurado el servicio API
 
 export default {
   name: 'ProductList',
@@ -27,12 +27,23 @@ export default {
   },
   data() {
     return {
-      products: productData
+      products: []
     };
   },
+  created() {
+    this.fetchProducts();
+  },
   methods: {
+    async fetchProducts() {
+      try {
+        const response = await api.get('/products');
+        this.products = response.data;
+      } catch (error) {
+        console.error('Error fetching products:', error);
+      }
+    },
     removeProduct(id) {
-      this.products = this.products.filter(product => product.id !== id);
+      console.log('Eliminar producto:', id);
     }
   }
 };

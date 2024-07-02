@@ -9,7 +9,6 @@
         <button class="detail-button">Ver detalles</button>
       </router-link>
     </div>
-    <button class="remove-button" @click="removeProduct">X</button>
   </div>
 </template>
 
@@ -51,9 +50,6 @@ export default {
     }
   },
   methods: {
-    removeProduct() {
-      this.$emit('remove', this.id);
-    }
   }
 };
 </script>
@@ -109,24 +105,6 @@ export default {
   color: white;
   padding: 5px;
   border-radius: 5px;
-}
-
-.remove-button {
-  background-color: red;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 50%;
-  min-width: 40px;
-  min-height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-}
-
-.remove-button:hover {
-  background-color: darkred;
 }
 
 .detail-button {

@@ -1,12 +1,12 @@
 <template>
   <div class="product-item-grid">
     <router-link :to="{ name: 'ProductDetail', params: { id: id } }">
-    <img :src="image" alt="Product Image" class="product-image" />
+      <img :src="image" alt="Product Image" class="product-image" />
     </router-link>
     <div class="product-details">
       <h2>{{ name }}</h2>
-      <p class="price">{{ price }}</p>
-        <button class="basket-button">Añadir Al Carrito</button>
+      <p class="price">${{ price.toFixed(2) }}</p>
+      <button class="basket-button">Añadir Al Carrito</button>
     </div>
   </div>
 </template>
@@ -24,30 +24,14 @@ export default {
       required: true
     },
     price: {
-      type: String,
+      type: Number,
       required: true
     },
     image: {
       type: String,
       required: true
-    },
-    description: {
-      type: String,
-      required: true
-    },
-    supplier: {
-      type: String,
-      required: true
-    },
-    label1: {
-      type: String,
-      required: true
-    },
-    label2: {
-      type: String,
-      required: true
     }
-  },
+  }
 };
 </script>
 

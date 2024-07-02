@@ -85,7 +85,7 @@ export default {
 }
 
 .logo {
-  height: 60px;
+  height: 65px;
 }
 
 .search-bar {
