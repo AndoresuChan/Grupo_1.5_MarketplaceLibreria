@@ -9,7 +9,6 @@
                 <button class="detail-button">Ver Perfil</button>
             </router-link>
         </div>
-        <button class="remove-button" @click="removeUser">X</button>
     </div>
 </template>
 
@@ -37,11 +36,6 @@ export default {
             type: String,
             required: true
         }
-    },
-    methods: {
-        removeUser() {
-            this.$emit('remove', this.id);
-        }
     }
 };
 </script>
@@ -52,7 +46,7 @@ export default {
     align-items: center;
     border: 1px solid #ccc;
     margin-bottom: 10px;
-    background-color: #f5e2b7;
+    background-color: #7887D3;
     padding: 10px;
     border-radius: 10px;
     margin-bottom: 1rem;
@@ -76,7 +70,7 @@ export default {
 .user-details h2 {
     margin: 0.5;
   font-size: 1.2rem;
-  background-color: #8b5e34;
+  background-color: #474D8C;
   color: white;
   padding: 6px;
   border-radius: 5px;
@@ -85,8 +79,8 @@ export default {
 .email {
     font-size: 1.1rem;
   font-weight: bold;
-  color: #000000;
-  background-color: #d0a671;
+  color: white;
+  background-color: #474D8C;
   padding: 5px;
   border-radius: 5px;
   align-self: flex-start;
@@ -94,7 +88,7 @@ export default {
 
 .description {
     margin: 5px 0;
-  background-color: #8b5e34;
+  background-color: #474D8C;
   color: white;
   padding: 5px;
   border-radius: 5px;
@@ -113,23 +107,4 @@ export default {
 .detail-button:hover {
     background-color: #45a049;
 }
-
-.remove-button {
-    background-color: red;
-  color: white;
-  border: none;
-  cursor: pointer;
-  border-radius: 50%;
-  min-width: 40px;
-  min-height: 40px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-}
-
-.remove-button:hover {
-    background-color: darkred;
-}
-
 </style>

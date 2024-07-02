@@ -92,7 +92,7 @@ export default {
 .price {
   font-size: 1.1rem;
   font-weight: bold;
-  color: #000000;
+  color: white;
   background-color: #474D8C;
   padding: 5px;
   border-radius: 5px;

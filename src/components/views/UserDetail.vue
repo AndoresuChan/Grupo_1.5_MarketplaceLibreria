@@ -33,7 +33,7 @@ export default {
 <style scoped>
 .card {
     margin: auto;
-    background-color: #f5e2b7;
+    background-color: #7887D3;
     border: 2px solid #ccc;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -56,17 +56,17 @@ export default {
 
 .info h2 {
     font-size: 24px;
-    color: #5b3920;
+    color: white;
     margin: 0;
 }
 
 .email {
-    color: #6c4c3a;
+    color: white;
     margin: 10px 0;
 }
 
 .description {
-    background-color: #6c4c3a;
+    background-color: #474D8C;
     color: white;
     padding: 10px;
     border-radius: 5px;

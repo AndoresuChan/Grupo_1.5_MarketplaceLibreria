@@ -4,8 +4,8 @@
         <h2>Registrar Cuenta</h2>
         <form @submit.prevent="handleSubmit">
             <div class="form-group">
-            <label for="name">Nombre</label>
-            <input type="name" id="name" v-model="name" placeholder="Nombre" required />
+            <label for="name">Nombre de usuario</label>
+            <input type="name" id="name" v-model="name" placeholder="Nombre de usuario" required />
           </div>
           <div class="form-group">
             <label for="email">Correo</label>
